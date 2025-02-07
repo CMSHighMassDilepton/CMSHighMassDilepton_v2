@@ -1,0 +1,24 @@
+The framework pipeline:
+
+setup your env and voms proxy by:
+<source setup_proxy.sh>
+this should activate copperheadV2 conda env
+
+generate your config by:
+<python make_parameters.py --year {year} >
+this would save configs in ./config/parameters.json
+
+generate the list of samples and their meta_data by iteracitvely running through prestage_tester.ipynb (not a python file) on copperheadV2 conda env
+this would save the info in ./config/processor_samples.json
+
+
+with the neccessary configs and sample info, we run stage1 on ./stage1_runner.ipynb on copperheadV2 conda env
+
+
+
+combine Commands that work:
+ combine -M BayesianSimple combine_test_datacard.txt 
+ 1. text2workspace.py combine_test_datacard.txt -m 125 --channel-masks
+ 2. combine -M GoodnessOfFit combine_test_datacard.root --algo saturated -m 125 --freezeParameters MH -n .goodnessOfFit_data --toysFrequentist -t 500
+
+ combine -M HybridNew combine_test_datacard.txt --LHCmode LHC-significance  --saveToys --fullBToys --saveHybridResult -T 50 -s 1234

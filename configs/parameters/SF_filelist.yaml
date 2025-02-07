@@ -1,0 +1,133 @@
+nnlops_file:
+  2016preVFP: data/NNLOPS_reweight.root
+  2016postVFP: data/NNLOPS_reweight.root
+  '2017': data/NNLOPS_reweight.root
+  '2018': data/NNLOPS_reweight.root
+  2022preEE: data/NNLOPS_reweight.root
+  2022postEE: data/NNLOPS_reweight.root
+btag_sf_json:
+  2016preVFP: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016preVFP_UL/btagging.json.gz
+  2016postVFP: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016postVFP_UL/btagging.json.gz
+  '2017': /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2017_UL/btagging.json.gz
+  '2018': /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2018_UL/btagging.json.gz
+  2022preEE: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22EE/btagging.json.gz
+  2022postEE: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22EE/btagging.json.gz
+btag_sf_csv:
+  2016preVFP: data/btag/DeepCSV_2016LegacySF_V1.csv
+  2016postVFP: data/btag/DeepCSV_2016LegacySF_V1.csv
+  '2017': data/btag/DeepCSV_106XUL17SF.csv
+  '2018': data/btag/DeepCSV_106XUL18SF.csv
+  2022preEE: data/btag/DeepCSV_106XUL18SF.csv
+  2022postEE: data/btag/DeepCSV_106XUL18SF.csv
+pu_file_data:
+  2016preVFP: data/pileup/puData2016_UL_withVar.root
+  2016postVFP: data/pileup/puData2016_UL_withVar.root
+  '2017': data/pileup/puData2017_UL_withVar.root
+  '2018': data/pileup/puData2018_UL_withVar.root
+  2022preEE: dummy_only_pu_file_mc_is_needed
+  2022postEE: dummy_only_pu_file_mc_is_needed
+pu_file_mc:
+  2016preVFP: data/pileup/mix_2016_25ns_UltraLegacy_PoissonOOTPU_cfi.yaml
+  2016postVFP: data/pileup/mix_2016_25ns_UltraLegacy_PoissonOOTPU_cfi.yaml
+  '2017': data/pileup/mix_2017_25ns_UltraLegacy_PoissonOOTPU_cfi.yaml
+  '2018': data/pileup/mix_2018_25ns_UltraLegacy_PoissonOOTPU_cfi.yaml
+  2022preEE: data/pileup/2022_Summer22/puWeights.json.gz 
+  2022postEE: data/pileup/2022_Summer22EE/puWeights.json.gz 
+muSFFileList:
+  2016preVFP:
+  - id:
+    - data/muon_sf/year2016/MuonSF_Run2016_UL_HIPM_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2016/MuonSF_Run2016_UL_HIPM_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2016/EfficienciesStudies_2016_trigger_EfficienciesAndSF_RunBtoF.root
+    - IsoMu24_OR_IsoTkMu24_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu24_OR_IsoTkMu24_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 1.0
+  2016postVFP:
+  - id:
+    - data/muon_sf/year2016/MuonSF_Run2016_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2016/MuonSF_Run2016_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2016/EfficienciesStudies_2016_trigger_EfficienciesAndSF_RunGtoH.root
+    - IsoMu24_OR_IsoTkMu24_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu24_OR_IsoTkMu24_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 1.0
+  '2017':
+  - id:
+    - data/muon_sf/year2017/MuonSF_Run2017_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2017/MuonSF_Run2017_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2017/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root
+    - IsoMu27_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu27_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 1.0
+  '2018':
+  - id:
+    - data/muon_sf/year2018/MuonSF_Run2018_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2018/MuonSF_Run2018_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2018/EfficienciesStudies_2018_trigger_EfficienciesAndSF_2018Data_BeforeMuonHLTUpdate.root
+    - IsoMu24_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu24_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 0.14981586876464678
+  - id:
+    - data/muon_sf/year2018/MuonSF_Run2018_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2018/MuonSF_Run2018_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2018/EfficienciesStudies_2018_trigger_EfficienciesAndSF_2018Data_AfterMuonHLTUpdate.root
+    - IsoMu24_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu24_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 0.8501841312353532
+  2022preEE:
+  - id:
+    - data/muon_sf/year2017/MuonSF_Run2017_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2017/MuonSF_Run2017_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2017/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root
+    - IsoMu27_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu27_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 1.0
+  2022postEE:
+  - id:
+    - data/muon_sf/year2017/MuonSF_Run2017_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2017/MuonSF_Run2017_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2017/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root
+    - IsoMu27_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu27_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 1.0
+zpt_weights_file:
+  2016preVFP: data/reweight_zpt_2018_nJetBinned_new.histo.root
+  2016postVFP: data/reweight_zpt_2018_nJetBinned_new.histo.root
+  '2017': data/reweight_zpt_2018_nJetBinned_new.histo.root
+  '2018': data/reweight_zpt_2018_nJetBinned_new.histo.root
+  2022preEE: data/reweight_zpt_2018_nJetBinned_new.histo.root
+  2022postEE: data/reweight_zpt_2018_nJetBinned_new.histo.root
+jetpuid_sf_file:
+  2016preVFP: data/PUID_106XTraining_ULRun2_EffSFandUncties_v1.root
+  2016postVFP: data/PUID_106XTraining_ULRun2_EffSFandUncties_v1.root
+  '2017': data/PUID_106XTraining_ULRun2_EffSFandUncties_v1.root
+  '2018': data/PUID_106XTraining_ULRun2_EffSFandUncties_v1.root
+  2022preEE: data/PUID_106XTraining_ULRun2_EffSFandUncties_v1.root
+  2022postEE: data/PUID_106XTraining_ULRun2_EffSFandUncties_v1.root

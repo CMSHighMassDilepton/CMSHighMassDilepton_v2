@@ -1,0 +1,5 @@
+2018_RERECO: # recommendation taken from https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVAnalysisSummaryTable
+  data_A: /SingleMuon/Run2018A-02Apr2020-v1/NANOAOD 
+  data_B: /SingleMuon/Run2018B-02Apr2020-v1/NANOAOD
+  data_C: /SingleMuon/Run2018C-02Apr2020-v1/NANOAOD
+  data_D: /SingleMuon/Run2018D-02Apr2020-v1/NANOAOD

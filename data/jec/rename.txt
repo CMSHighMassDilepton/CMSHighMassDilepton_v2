@@ -1,0 +1,1 @@
+for i in Summer19UL18*Uncertainty*.txt.txt.junc.txt; do mv $i ${i%.}.junc.txt; done

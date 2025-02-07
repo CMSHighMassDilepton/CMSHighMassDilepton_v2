@@ -1,0 +1,27 @@
+imax 1
+jmax 1
+kmax *
+---------------
+shapes data_obs        mh_ggh workspaceV2.root workspace:data_subCat0
+shapes signal_subCat0  mh_ggh workspaceV2.root workspace:signal_subCat0
+shapes CorePdf_subCat0 mh_ggh workspaceV2.root workspace:CorePdf_subCat0
+---------------
+# take event count from dataset (use -1)
+bin                    mh_ggh 
+observation            -1
+---------------
+
+# process indices have to be negative or zero for signal, positive for background
+bin                    mh_ggh           mh_ggh  
+process                signal_subCat0   CorePdf_subCat0   
+process                -1               1        
+rate                   1                1       
+
+---------------
+# usual systematics .... note, we advertise the pdf changing parameter as a discrete nuisance
+lumi_13TeV lnN         1.011            -  
+
+------------
+
+
+pdf_index_subCat0 discrete

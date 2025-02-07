@@ -1,0 +1,18 @@
+files:
+  ? root://eos.cms.rcac.purdue.edu:1094///store/mc/RunIISummer20UL18NanoAODv9/VBFHToMuMu_M125_TuneCP5_withDipoleRecoil_13TeV-powheg-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v1/2820000/083C985C-C112-3B46-A053-D72C1F83309D.root
+  : object_path: Events
+    steps:
+    - - 0
+      - 10044
+    uuid: b16b5dea-fbcd-11ed-bae7-a2a0b8bcbeef
+form: null
+metadata:
+  sumGenWgts: 7720081.838819998
+  nGenEvts: 2000000
+  data_entries: null
+  fraction: 1.0
+  original_fraction: 1.0
+  is_mc: true
+  dataset: vbf_powheg
+  NanoAODv: 9
+  version: latest

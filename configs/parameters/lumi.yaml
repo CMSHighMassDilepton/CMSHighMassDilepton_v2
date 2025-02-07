@@ -1,0 +1,14 @@
+integrated_lumis:
+  2016preVFP: 19500.0
+  2016postVFP: 16800.0
+  '2017': 41530.0
+  '2018': 59970.0
+  2022preEE: 59970.0
+  2022postEE: 59970.0
+lumimask:
+  2016preVFP: data/lumimasks/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt
+  2016postVFP: data/lumimasks/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt
+  '2017': data/lumimasks/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt
+  '2018': data/lumimasks/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+  2022preEE: data/lumimasks/Cert_Collisions2022_355100_362760_Golden.json
+  2022postEE: data/lumimasks/Cert_Collisions2022_355100_362760_Golden.json

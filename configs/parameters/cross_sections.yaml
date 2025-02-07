@@ -1,0 +1,90 @@
+cross_sections:
+  test: 6200.0
+  dy_M-50: 6195.8
+  dy_M-50_nocut: 6450.0
+  dy_M-100To200: 254.2 # original value: 254.2
+  dy_VBF_filter: 2.01  # subjet to change
+  dy_VBF_filter_customJMEoff: 2.01 # subjet to change
+  dy_VBF_filter_fromGenSim: 2.01 # subjet to change
+  dy_M-50To120: 254.2 # subjet to change
+  dy_M-120To200: 254.2 # subjet to change
+  dy_0j: 4620.52
+  dy_1j: 922.5
+  dy_2j: 293.6
+  dy_m105_160_mg: 47.17
+  dy_m105_160_vbf_mg:
+    '2016': 1.77
+    '2017': 2.04
+    '2018': 2.03
+  # dy_m105_160_amc: 47.17
+  dy_m105_160_vbf_amc: 2.03 # temporary write in for 2018 value. In the future, I think I need to rewrite this yml structure
+  # dy_m105_160_vbf_amc:
+  #   '2016': 1.77
+  #   '2017': 2.04
+  #   '2018': 2.03
+  ewk_lljj_mll105_160:
+    '2016': 0.0508896
+    '2017': 0.0508896
+    '2018': 0.0508896
+  ewk_lljj_mll105_160_py:
+    '2016': 0.0508896
+    '2017': 0.0508896
+    '2018': 0.0508896
+  ewk_lljj_mll105_160_ptj0:
+    '2016': 0.07486
+    '2017': 0.0789
+    '2018': 0.0789
+  ewk_lljj_mll50_mjj120: 1.719
+  ewk_lljj_mll105_160_py_dipole:
+    '2016': 0.07486
+    '2017': 0.0789
+    '2018': 0.0789
+  ewk_m50: 3.998
+  st_top: 136.02
+  st_t_top: 3.4
+  st_t_antitop: 80.95
+  st_tw_top: 32.51
+  st_tw_antitop: 32.45
+  ttjets_dl: 86.65
+  ttjets_sl: 358.57
+  ww_2l2nu: 11.09
+  wz_3lnu: 5.22
+  wz_2l2q: 6.45
+  wz_1l1nu2q: 9.12
+  zz: 12.17
+  ttw: 0.2001
+  ttz: 0.2529
+  www: 0.2086
+  wwz: 0.1651
+  wzz: 0.05565
+  zzz: 0.01398
+  ggh_powheg: 0.01057
+  ggh_powhegPS: 0.01057
+  ggh_amcPS: 0.01057
+  ggh_amcPS_TuneCP5down: 0.01057
+  ggh_amcPS_TuneCP5up: 0.01057
+  ggh_amc: 0.01057
+  ggh_localTest: 0.01057
+  vbf: 0.0008210722
+  vbf_sync: 0.0008210722
+  vbf_powheg: 0.0008210722
+  vbf_powheg_herwig: 0.0008210722
+  vbf_powheg_dipole: 0.0008210722
+  vbf_powhegPS: 0.0008210722
+  vbf_amc_herwig: 0.0008210722
+  vbf_amcPS_TuneCP5down: 0.0008210722
+  vbf_amcPS_TuneCP5up: 0.0008210722
+  vbf_amcPS: 0.0008210722
+  vbf_amc: 0.0008210722
+  ggh_powhegPS_m120: 0.012652906
+  ggh_amcPS_m120: 0.012652906
+  vbf_powhegPS_m120: 0.0009534505
+  vbf_amcPS_m120: 0.0009534505
+  ggh_powhegPS_m130: 0.008504687
+  ggh_amcPS_m130: 0.008504687
+  vbf_powhegPS_m130: 0.0006826649
+  vbf_amcPS_m130: 0.0006826649
+  wmh: 0.000116
+  wph: 0.000183
+  zh: 0.000192
+  tth: 0.00011

@@ -1,0 +1,36 @@
+mu_hlt:
+  2016preVFP:
+  - Mu50
+  - TkMu50
+  2016postVFP:
+  - Mu50
+  - TkMu50
+  '2017':
+  - Mu50
+  - TkMu100
+  - OldMu100
+  '2018':
+  - Mu50
+  - TkMu100
+  - OldMu100
+  2022preEE:
+  - IsoMu24
+  2022postEE:
+  - IsoMu24
+
+el_hlt:
+  2016preVFP:
+  - DoubleEle33_CaloIdL_GsfTrkIdVL
+  - DoubleEle33_CaloIdL_MW
+  2016postVFP:
+  - DoubleEle33_CaloIdL_MW
+  - DoubleEle33_CaloIdL_GsfTrkIdVL_MW
+  '2017':
+  - DoubleEle33_CaloIdL_MW
+  '2018':
+  - DoubleEle25_CaloIdL_MW
+  2022preEE:
+  - IsoMu24
+  2022postEE:
+  - IsoMu24
+

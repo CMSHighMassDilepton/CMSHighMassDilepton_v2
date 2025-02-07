@@ -1,0 +1,204 @@
+sths_names:
+  2016preVFP:
+  - Yield
+  - PTH200
+  - Mjj60
+  - Mjj120
+  - Mjj350
+  - Mjj700
+  - Mjj1000
+  - Mjj1500
+  - PTH25
+  - JET01
+  2016postVFP:
+  - Yield
+  - PTH200
+  - Mjj60
+  - Mjj120
+  - Mjj350
+  - Mjj700
+  - Mjj1000
+  - Mjj1500
+  - PTH25
+  - JET01
+  '2017':
+  - Yield
+  - PTH200
+  - Mjj60
+  - Mjj120
+  - Mjj350
+  - Mjj700
+  - Mjj1000
+  - Mjj1500
+  - PTH25
+  - JET01
+  '2018':
+  - Yield
+  - PTH200
+  - Mjj60
+  - Mjj120
+  - Mjj350
+  - Mjj700
+  - Mjj1000
+  - Mjj1500
+  - PTH25
+  - JET01
+  2022preEE:
+  - Yield
+  - PTH200
+  - Mjj60
+  - Mjj120
+  - Mjj350
+  - Mjj700
+  - Mjj1000
+  - Mjj1500
+  - PTH25
+  - JET01
+  2022postEE:
+  - Yield
+  - PTH200
+  - Mjj60
+  - Mjj120
+  - Mjj350
+  - Mjj700
+  - Mjj1000
+  - Mjj1500
+  - PTH25
+  - JET01
+btag_systs:
+  2016preVFP:
+  - jes
+  - lf
+  - hfstats1
+  - hfstats2
+  - cferr1
+  - cferr2
+  - hf
+  - lfstats1
+  - lfstats2
+  2016postVFP:
+  - jes
+  - lf
+  - hfstats1
+  - hfstats2
+  - cferr1
+  - cferr2
+  - hf
+  - lfstats1
+  - lfstats2
+  '2017':
+  - jes
+  - lf
+  - hfstats1
+  - hfstats2
+  - cferr1
+  - cferr2
+  - hf
+  - lfstats1
+  - lfstats2
+  '2018':
+  - jes
+  - lf
+  - hfstats1
+  - hfstats2
+  - cferr1
+  - cferr2
+  - hf
+  - lfstats1
+  - lfstats2
+  2022preEE:
+  - jes
+  - lf
+  - hfstats1
+  - hfstats2
+  - cferr1
+  - cferr2
+  - hf
+  - lfstats1
+  - lfstats2
+  2022postEE:
+  - jes
+  - lf
+  - hfstats1
+  - hfstats2
+  - cferr1
+  - cferr2
+  - hf
+  - lfstats1
+  - lfstats2
+event_flags:
+  2016preVFP:
+  - BadPFMuonFilter
+  - EcalDeadCellTriggerPrimitiveFilter
+  - HBHENoiseFilter
+  - HBHENoiseIsoFilter
+  - globalSuperTightHalo2016Filter
+  - goodVertices
+  - BadChargedCandidateFilter
+  2016postVFP:
+  - BadPFMuonFilter
+  - EcalDeadCellTriggerPrimitiveFilter
+  - HBHENoiseFilter
+  - HBHENoiseIsoFilter
+  - globalSuperTightHalo2016Filter
+  - goodVertices
+  - BadChargedCandidateFilter
+  - eeBadScFilter
+  - ecalBadCalibFilter
+  '2017':
+  - BadPFMuonFilter
+  - EcalDeadCellTriggerPrimitiveFilter
+  - HBHENoiseFilter
+  - HBHENoiseIsoFilter
+  - globalSuperTightHalo2016Filter
+  - goodVertices
+  - BadChargedCandidateFilter
+  - eeBadScFilter
+  - ecalBadCalibFilter
+  '2018':
+  - BadPFMuonFilter
+  - EcalDeadCellTriggerPrimitiveFilter
+  - HBHENoiseFilter
+  - HBHENoiseIsoFilter
+  - globalSuperTightHalo2016Filter
+  - goodVertices
+  - BadChargedCandidateFilter
+  - eeBadScFilter
+  - ecalBadCalibFilter
+  2022preEE:
+  - BadPFMuonFilter
+  - EcalDeadCellTriggerPrimitiveFilter
+  - HBHENoiseFilter
+  - HBHENoiseIsoFilter
+  - globalSuperTightHalo2016Filter
+  - goodVertices
+  - BadChargedCandidateFilter
+  2022postEE:
+  - BadPFMuonFilter
+  - EcalDeadCellTriggerPrimitiveFilter
+  - HBHENoiseFilter
+  - HBHENoiseIsoFilter
+  - globalSuperTightHalo2016Filter
+  - goodVertices
+  - BadChargedCandidateFilter
+do_l1prefiring_wgts:
+  2016preVFP: true
+  2016postVFP: true
+  '2017': true
+  '2018': false
+  2022preEE: false
+  2022postEE: false
+n_pdf_variations:
+  2016preVFP: 100
+  2016postVFP: 100
+  '2017': 33
+  '2018': 33
+  2022preEE: 33
+  2022postEE: 33
+dnn_max:
+  2016preVFP: 1.75
+  2016postVFP: 1.75
+  '2017': 2.0
+  '2018': 2.35
+  2022preEE: 2.35
+  2022postEE: 2.35

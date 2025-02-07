@@ -1,0 +1,87 @@
+muon_pt_cut:
+  2016preVFP: 53.0
+  2016postVFP: 53.0
+  '2017': 53.0
+  '2018': 53.0
+  2022preEE: 53.0
+  2022postEE: 53.0
+muon_eta_cut:
+  2016preVFP: 2.4
+  2016postVFP: 2.4
+  '2017': 2.4
+  '2018': 2.4
+  2022preEE: 2.4
+  2022postEE: 2.4
+muon_iso_cut:
+  2016preVFP: 0.05
+  2016postVFP: 0.05
+  '2017': 0.05
+  '2018': 0.05
+  2022preEE: 0.05
+  2022postEE: 0.05
+muon_id:
+  2016preVFP: highPtId
+  2016postVFP: highPtId
+  '2017': highPtId
+  '2018': highPtId
+  2022preEE: highPtId
+  2022postEE: highPtId
+muon_flags:
+  2016preVFP: []
+  2016postVFP: []
+  '2017': []
+  '2018': []
+  2022preEE: []
+  2022postEE: []
+muon_dxy:
+  2016preVFP: 0.02
+  2016postVFP: 0.02
+  '2017': 0.02
+  '2018': 0.02
+  2022preEE: 0.02
+  2022postEE: 0.02
+
+muon_dz:
+  2016preVFP: 0.1
+  2016postVFP: 0.1
+  '2017': 0.1
+  '2018': 0.1
+  2022preEE: 0.1
+  2022postEE: 0.1
+
+muon_ptErr/pt:
+  2016preVFP: 0.3
+  2016postVFP: 0.3
+  '2017': 0.3
+  '2018': 0.3
+  2022preEE: 0.3
+  2022postEE: 0.3
+
+muon_leading_pt:
+  2016preVFP: 26.0
+  2016postVFP: 26.0
+  '2017': 29.0
+  '2018': 26.0
+  2022preEE: 26.0
+  2022postEE: 26.0
+muon_trigmatch_iso:
+  2016preVFP: 0.15
+  2016postVFP: 0.15
+  '2017': 0.15
+  '2018': 0.15
+  2022preEE: 0.15
+  2022postEE: 0.15
+muon_trigmatch_dr:
+  2016preVFP: 0.1
+  2016postVFP: 0.1
+  '2017': 0.1
+  '2018': 0.1
+  2022preEE: 0.1
+  2022postEE: 0.1
+muon_trigmatch_id:
+  2016preVFP: tightId
+  2016postVFP: tightId
+  '2017': tightId
+  '2018': tightId
+  2022preEE: tightId
+  2022postEE: tightId

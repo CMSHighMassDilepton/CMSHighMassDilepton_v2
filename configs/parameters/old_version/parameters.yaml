@@ -1,0 +1,841 @@
+muon_pt_cut:
+  2016preVFP: 20.0
+  2016postVFP: 20.0
+  '2017': 20.0
+  '2018': 20.0
+  2022EE: 20.0
+muon_eta_cut:
+  2016preVFP: 2.4
+  2016postVFP: 2.4
+  '2017': 2.4
+  '2018': 2.4
+  2022EE: 2.4
+muon_iso_cut:
+  2016preVFP: 0.25
+  2016postVFP: 0.25
+  '2017': 0.25
+  '2018': 0.25
+  2022EE: 0.25
+muon_id:
+  2016preVFP: mediumId
+  2016postVFP: mediumId
+  '2017': mediumId
+  '2018': mediumId
+  2022EE: mediumId
+muon_flags:
+  2016preVFP: []
+  2016postVFP: []
+  '2017': []
+  '2018': []
+  2022EE: []
+muon_leading_pt:
+  2016preVFP: 26.0
+  2016postVFP: 26.0
+  '2017': 29.0
+  '2018': 26.0
+  2022EE: 26.0
+muon_trigmatch_iso:
+  2016preVFP: 0.15
+  2016postVFP: 0.15
+  '2017': 0.15
+  '2018': 0.15
+  2022EE: 0.15
+muon_trigmatch_dr:
+  2016preVFP: 0.1
+  2016postVFP: 0.1
+  '2017': 0.1
+  '2018': 0.1
+  2022EE: 0.1
+muon_trigmatch_id:
+  2016preVFP: tightId
+  2016postVFP: tightId
+  '2017': tightId
+  '2018': tightId
+  2022EE: tightId
+electron_pt_cut:
+  2016preVFP: 20.0
+  2016postVFP: 20.0
+  '2017': 20.0
+  '2018': 20.0
+  2022EE: 20.0
+electron_eta_cut:
+  2016preVFP: 2.5
+  2016postVFP: 2.5
+  '2017': 2.5
+  '2018': 2.5
+  2022EE: 2.5
+electron_id_v9:
+  2016preVFP: mvaFall17V2Iso_WP90
+  2016postVFP: mvaFall17V2Iso_WP90
+  '2017': mvaFall17V2Iso_WP90
+  '2018': mvaFall17V2Iso_WP90
+  2022EE: mvaFall17V2Iso_WP90
+electron_id_v12:
+  2016preVFP: mvaIso_WP90
+  2016postVFP: mvaIso_WP90
+  '2017': mvaIso_WP90
+  '2018': mvaIso_WP90
+  2022EE: mvaIso_WP90
+jet_pt_cut:
+  2016preVFP: 25.0
+  2016postVFP: 25.0
+  '2017': 25.0
+  '2018': 25.0
+  2022EE: 25.0
+jet_eta_cut:
+  2016preVFP: 4.7
+  2016postVFP: 4.7
+  '2017': 4.7
+  '2018': 4.7
+  2022EE: 4.7
+jet_id:
+  2016preVFP: loose
+  2016postVFP: loose
+  '2017': tight
+  '2018': tight
+  2022EE: tight
+jet_puid:
+  2016preVFP: loose
+  2016postVFP: loose
+  '2017': loose
+  '2018': loose
+  2022EE: loose
+min_dr_mu_jet:
+  2016preVFP: 0.4
+  2016postVFP: 0.4
+  '2017': 0.4
+  '2018': 0.4
+  2022EE: 0.4
+btag_loose_wp:
+  2016preVFP: 0.2027
+  2016postVFP: 0.1918
+  '2017': 0.1355
+  '2018': 0.049
+  2022EE: 0.12
+btag_medium_wp:
+  2016preVFP: 0.6001
+  2016postVFP: 0.4847
+  '2017': 0.4506
+  '2018': 0.4168
+  2022EE: 0.4168
+softjet_dr2:
+  2016preVFP: 0.16
+  2016postVFP: 0.16
+  '2017': 0.16
+  '2018': 0.16
+  2022EE: 0.16
+lumimask:
+  2016preVFP: data/lumimasks/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt
+  2016postVFP: data/lumimasks/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt
+  '2017': data/lumimasks/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt
+  '2018': data/lumimasks/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+  2022EE: data/lumimasks/Cert_Collisions2022_355100_362760_Golden.txt
+hlt:
+  2016preVFP:
+  - IsoMu24
+  - IsoTkMu24
+  2016postVFP:
+  - IsoMu24
+  - IsoTkMu24
+  '2017':
+  - IsoMu27
+  '2018':
+  - IsoMu24
+  2022EE:
+  - IsoMu24
+roccor_file:
+  2016preVFP: data/roch_corr/RoccoR2016aUL.txt
+  2016postVFP: data/roch_corr/RoccoR2016bUL.txt
+  '2017': data/roch_corr/RoccoR2017UL.txt
+  '2018': data/roch_corr/RoccoR2018UL.txt
+  2022EE: data/roch_corr/RoccoR2018UL.txt
+nnlops_file:
+  2016preVFP: data/NNLOPS_reweight.root
+  2016postVFP: data/NNLOPS_reweight.root
+  '2017': data/NNLOPS_reweight.root
+  '2018': data/NNLOPS_reweight.root
+  2022EE: data/NNLOPS_reweight.root
+btag_sf_json:
+  2016preVFP: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016preVFP_UL/btagging.json.gz
+  2016postVFP: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2016postVFP_UL/btagging.json.gz
+  '2017': /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2017_UL/btagging.json.gz
+  '2018': /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2018_UL/btagging.json.gz
+  2022EE: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/2022_Summer22EE/btagging.json.gz
+btag_sf_csv:
+  2016preVFP: data/btag/DeepCSV_2016LegacySF_V1.csv
+  2016postVFP: data/btag/DeepCSV_2016LegacySF_V1.csv
+  '2017': data/btag/DeepCSV_106XUL17SF.csv
+  '2018': data/btag/DeepCSV_106XUL18SF.csv
+  2022EE: data/btag/DeepCSV_106XUL18SF.csv
+pu_file_data:
+  2016preVFP: data/pileup/puData2016_UL_withVar.root
+  2016postVFP: data/pileup/puData2016_UL_withVar.root
+  '2017': data/pileup/puData2017_UL_withVar.root
+  '2018': data/pileup/puData2018_UL_withVar.root
+  2022EE: data/pileup/puData2018_UL_withVar.root
+pu_file_mc:
+  2016preVFP: data/pileup/mix_2016_25ns_UltraLegacy_PoissonOOTPU_cfi.yaml
+  2016postVFP: data/pileup/mix_2016_25ns_UltraLegacy_PoissonOOTPU_cfi.yaml
+  '2017': data/pileup/mix_2017_25ns_UltraLegacy_PoissonOOTPU_cfi.yaml
+  '2018': data/pileup/mix_2018_25ns_UltraLegacy_PoissonOOTPU_cfi.yaml
+  2022EE: data/pileup/Run3_2022_LHC_Simulation_10h_2h_cfi.yaml
+muSFFileList:
+  2016preVFP:
+  - id:
+    - data/muon_sf/year2016/MuonSF_Run2016_UL_HIPM_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2016/MuonSF_Run2016_UL_HIPM_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2016/EfficienciesStudies_2016_trigger_EfficienciesAndSF_RunBtoF.root
+    - IsoMu24_OR_IsoTkMu24_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu24_OR_IsoTkMu24_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 1.0
+  2016postVFP:
+  - id:
+    - data/muon_sf/year2016/MuonSF_Run2016_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2016/MuonSF_Run2016_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2016/EfficienciesStudies_2016_trigger_EfficienciesAndSF_RunGtoH.root
+    - IsoMu24_OR_IsoTkMu24_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu24_OR_IsoTkMu24_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 1.0
+  '2017':
+  - id:
+    - data/muon_sf/year2017/MuonSF_Run2017_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2017/MuonSF_Run2017_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2017/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root
+    - IsoMu27_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu27_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 1.0
+  '2018':
+  - id:
+    - data/muon_sf/year2018/MuonSF_Run2018_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2018/MuonSF_Run2018_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2018/EfficienciesStudies_2018_trigger_EfficienciesAndSF_2018Data_BeforeMuonHLTUpdate.root
+    - IsoMu24_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu24_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 0.14981586876464678
+  - id:
+    - data/muon_sf/year2018/MuonSF_Run2018_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2018/MuonSF_Run2018_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2018/EfficienciesStudies_2018_trigger_EfficienciesAndSF_2018Data_AfterMuonHLTUpdate.root
+    - IsoMu24_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu24_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 0.8501841312353532
+  2022EE:
+  - id:
+    - data/muon_sf/year2017/MuonSF_Run2017_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2017/MuonSF_Run2017_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/mu2017/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root
+    - IsoMu27_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu27_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 1.0
+zpt_weights_file:
+  2016preVFP: data/reweight_zpt_2018_nJetBinned_new.histo.root
+  2016postVFP: data/reweight_zpt_2018_nJetBinned_new.histo.root
+  '2017': data/reweight_zpt_2018_nJetBinned_new.histo.root
+  '2018': data/reweight_zpt_2018_nJetBinned_new.histo.root
+  2022EE: data/reweight_zpt_2018_nJetBinned_new.histo.root
+jetpuid_sf_file:
+  2016preVFP: data/PUID_106XTraining_ULRun2_EffSFandUncties_v1.root
+  2016postVFP: data/PUID_106XTraining_ULRun2_EffSFandUncties_v1.root
+  '2017': data/PUID_106XTraining_ULRun2_EffSFandUncties_v1.root
+  '2018': data/PUID_106XTraining_ULRun2_EffSFandUncties_v1.root
+  2022EE: data/PUID_106XTraining_ULRun2_EffSFandUncties_v1.root
+res_calib_path:
+  2016preVFP: data/res_calib/
+  2016postVFP: data/res_calib/
+  '2017': data/res_calib/
+  '2018': data/res_calib/
+  2022EE: data/res_calib/
+sths_names:
+  2016preVFP:
+  - Yield
+  - PTH200
+  - Mjj60
+  - Mjj120
+  - Mjj350
+  - Mjj700
+  - Mjj1000
+  - Mjj1500
+  - PTH25
+  - JET01
+  2016postVFP:
+  - Yield
+  - PTH200
+  - Mjj60
+  - Mjj120
+  - Mjj350
+  - Mjj700
+  - Mjj1000
+  - Mjj1500
+  - PTH25
+  - JET01
+  '2017':
+  - Yield
+  - PTH200
+  - Mjj60
+  - Mjj120
+  - Mjj350
+  - Mjj700
+  - Mjj1000
+  - Mjj1500
+  - PTH25
+  - JET01
+  '2018':
+  - Yield
+  - PTH200
+  - Mjj60
+  - Mjj120
+  - Mjj350
+  - Mjj700
+  - Mjj1000
+  - Mjj1500
+  - PTH25
+  - JET01
+  2022EE:
+  - Yield
+  - PTH200
+  - Mjj60
+  - Mjj120
+  - Mjj350
+  - Mjj700
+  - Mjj1000
+  - Mjj1500
+  - PTH25
+  - JET01
+btag_systs:
+  2016preVFP:
+  - jes
+  - lf
+  - hfstats1
+  - hfstats2
+  - cferr1
+  - cferr2
+  - hf
+  - lfstats1
+  - lfstats2
+  2016postVFP:
+  - jes
+  - lf
+  - hfstats1
+  - hfstats2
+  - cferr1
+  - cferr2
+  - hf
+  - lfstats1
+  - lfstats2
+  '2017':
+  - jes
+  - lf
+  - hfstats1
+  - hfstats2
+  - cferr1
+  - cferr2
+  - hf
+  - lfstats1
+  - lfstats2
+  '2018':
+  - jes
+  - lf
+  - hfstats1
+  - hfstats2
+  - cferr1
+  - cferr2
+  - hf
+  - lfstats1
+  - lfstats2
+  2022EE:
+  - jes
+  - lf
+  - hfstats1
+  - hfstats2
+  - cferr1
+  - cferr2
+  - hf
+  - lfstats1
+  - lfstats2
+event_flags:
+  2016preVFP:
+  - BadPFMuonFilter
+  - EcalDeadCellTriggerPrimitiveFilter
+  - HBHENoiseFilter
+  - HBHENoiseIsoFilter
+  - globalSuperTightHalo2016Filter
+  - goodVertices
+  - BadChargedCandidateFilter
+  2016postVFP:
+  - BadPFMuonFilter
+  - EcalDeadCellTriggerPrimitiveFilter
+  - HBHENoiseFilter
+  - HBHENoiseIsoFilter
+  - globalSuperTightHalo2016Filter
+  - goodVertices
+  - BadChargedCandidateFilter
+  '2017':
+  - BadPFMuonFilter
+  - EcalDeadCellTriggerPrimitiveFilter
+  - HBHENoiseFilter
+  - HBHENoiseIsoFilter
+  - globalSuperTightHalo2016Filter
+  - goodVertices
+  - BadChargedCandidateFilter
+  '2018':
+  - BadPFMuonFilter
+  - EcalDeadCellTriggerPrimitiveFilter
+  - HBHENoiseFilter
+  - HBHENoiseIsoFilter
+  - globalSuperTightHalo2016Filter
+  - goodVertices
+  - BadChargedCandidateFilter
+  2022EE:
+  - BadPFMuonFilter
+  - EcalDeadCellTriggerPrimitiveFilter
+  - HBHENoiseFilter
+  - HBHENoiseIsoFilter
+  - globalSuperTightHalo2016Filter
+  - goodVertices
+  - BadChargedCandidateFilter
+do_l1prefiring_wgts:
+  2016preVFP: true
+  2016postVFP: true
+  '2017': true
+  '2018': false
+  2022EE: false
+n_pdf_variations:
+  2016preVFP: 100
+  2016postVFP: 100
+  '2017': 33
+  '2018': 33
+  2022EE: 33
+dnn_max:
+  2016preVFP: 1.75
+  2016postVFP: 1.75
+  '2017': 2.0
+  '2018': 2.35
+  2022EE: 2.35
+cross_sections:
+  test: 6200.0
+  dy_M-50: 6195.8
+  dy_M-50_nocut: 6450.0
+  dy_M-100To200: 254.2 # original value: 254.2
+  dy_VBF_filter: 2.01  # subjet to change
+  dy_m105_160_vbf_amc: 2.01 # subjet to change
+  dy_VBF_filter_customJMEoff: 2.01 # subjet to change
+  dy_0j: 4620.52
+  dy_1j: 922.5
+  dy_2j: 293.6
+  dy_m105_160_mg: 47.17
+  dy_m105_160_vbf_mg:
+    '2016': 1.77
+    '2017': 2.04
+    '2018': 2.03
+  # dy_m105_160_amc: 47.17
+  # dy_m105_160_vbf_amc:
+  #   '2016': 1.77
+  #   '2017': 2.04
+  #   '2018': 2.03
+  ewk_lljj_mll105_160:
+    '2016': 0.0508896
+    '2017': 0.0508896
+    '2018': 0.0508896
+  ewk_lljj_mll105_160_py:
+    '2016': 0.0508896
+    '2017': 0.0508896
+    '2018': 0.0508896
+  ewk_lljj_mll105_160_ptj0:
+    '2016': 0.07486
+    '2017': 0.0789
+    '2018': 0.0789
+  ewk_lljj_mll50_mjj120: 1.719
+  ewk_lljj_mll105_160_py_dipole:
+    '2016': 0.07486
+    '2017': 0.0789
+    '2018': 0.0789
+  ewk_m50: 3.998
+  st_top: 136.02
+  st_t_top: 3.4
+  st_t_antitop: 80.95
+  st_tw_top: 32.51
+  st_tw_antitop: 32.45
+  ttjets_dl: 86.65
+  ttjets_sl: 358.57
+  ww_2l2nu: 11.09
+  wz_3lnu: 5.22
+  wz_2l2q: 6.45
+  wz_1l1nu2q: 9.12
+  zz: 12.17
+  ttw: 0.2001
+  ttz: 0.2529
+  www: 0.2086
+  wwz: 0.1651
+  wzz: 0.05565
+  zzz: 0.01398
+  ggh_powheg: 0.01057
+  ggh_powhegPS: 0.01057
+  ggh_amcPS: 0.01057
+  ggh_amcPS_TuneCP5down: 0.01057
+  ggh_amcPS_TuneCP5up: 0.01057
+  ggh_amc: 0.01057
+  ggh_localTest: 0.01057
+  vbf: 0.0008210722
+  vbf_sync: 0.0008210722
+  vbf_powheg: 0.0008210722
+  vbf_powheg_herwig: 0.0008210722
+  vbf_powheg_dipole: 0.0008210722
+  vbf_powhegPS: 0.0008210722
+  vbf_amc_herwig: 0.0008210722
+  vbf_amcPS_TuneCP5down: 0.0008210722
+  vbf_amcPS_TuneCP5up: 0.0008210722
+  vbf_amcPS: 0.0008210722
+  vbf_amc: 0.0008210722
+  ggh_powhegPS_m120: 0.012652906
+  ggh_amcPS_m120: 0.012652906
+  vbf_powhegPS_m120: 0.0009534505
+  vbf_amcPS_m120: 0.0009534505
+  ggh_powhegPS_m130: 0.008504687
+  ggh_amcPS_m130: 0.008504687
+  vbf_powhegPS_m130: 0.0006826649
+  vbf_amcPS_m130: 0.0006826649
+  wmh: 0.000116
+  wph: 0.000183
+  zh: 0.000192
+  tth: 0.00011
+integrated_lumis:
+  2016preVFP: 19500.0
+  2016postVFP: 16800.0
+  '2017': 41530.0
+  '2018': 59970.0
+jec_parameters:
+  jec_variations:
+    2016preVFP:
+    - Absolute_up
+    - Absolute_down
+    - Absolute2016_up
+    - Absolute2016_down
+    - BBEC1_up
+    - BBEC1_down
+    - BBEC12016_up
+    - BBEC12016_down
+    - EC2_up
+    - EC2_down
+    - EC22016_up
+    - EC22016_down
+    - HF_up
+    - HF_down
+    - HF2016_up
+    - HF2016_down
+    - RelativeBal_up
+    - RelativeBal_down
+    - RelativeSample2016_up
+    - RelativeSample2016_down
+    - FlavorQCD_up
+    - FlavorQCD_down
+    2016postVFP:
+    - Absolute_up
+    - Absolute_down
+    - Absolute2016_up
+    - Absolute2016_down
+    - BBEC1_up
+    - BBEC1_down
+    - BBEC12016_up
+    - BBEC12016_down
+    - EC2_up
+    - EC2_down
+    - EC22016_up
+    - EC22016_down
+    - HF_up
+    - HF_down
+    - HF2016_up
+    - HF2016_down
+    - RelativeBal_up
+    - RelativeBal_down
+    - RelativeSample2016_up
+    - RelativeSample2016_down
+    - FlavorQCD_up
+    - FlavorQCD_down
+    '2017':
+    - Absolute_up
+    - Absolute_down
+    - Absolute2017_up
+    - Absolute2017_down
+    - BBEC1_up
+    - BBEC1_down
+    - BBEC12017_up
+    - BBEC12017_down
+    - EC2_up
+    - EC2_down
+    - EC22017_up
+    - EC22017_down
+    - HF_up
+    - HF_down
+    - HF2017_up
+    - HF2017_down
+    - RelativeBal_up
+    - RelativeBal_down
+    - RelativeSample2017_up
+    - RelativeSample2017_down
+    - FlavorQCD_up
+    - FlavorQCD_down
+    '2018':
+    - Absolute_up
+    - Absolute_down
+    - Absolute2018_up
+    - Absolute2018_down
+    - BBEC1_up
+    - BBEC1_down
+    - BBEC12018_up
+    - BBEC12018_down
+    - EC2_up
+    - EC2_down
+    - EC22018_up
+    - EC22018_down
+    - HF_up
+    - HF_down
+    - HF2018_up
+    - HF2018_down
+    - RelativeBal_up
+    - RelativeBal_down
+    - RelativeSample2018_up
+    - RelativeSample2018_down
+    - FlavorQCD_up
+    - FlavorQCD_down
+    2022EE:
+    - Absolute_up
+    - Absolute_down
+    - Absolute2018_up
+    - Absolute2018_down
+    - BBEC1_up
+    - BBEC1_down
+    - BBEC12018_up
+    - BBEC12018_down
+    - EC2_up
+    - EC2_down
+    - EC22018_up
+    - EC22018_down
+    - HF_up
+    - HF_down
+    - HF2018_up
+    - HF2018_down
+    - RelativeBal_up
+    - RelativeBal_down
+    - RelativeSample2018_up
+    - RelativeSample2018_down
+    - FlavorQCD_up
+    - FlavorQCD_down
+  runs:
+    2016preVFP:
+    - B
+    - C
+    - D
+    - E
+    - F
+    2016postVFP:
+    - F
+    - G
+    - H
+    '2017':
+    - B
+    - C
+    - D
+    - E
+    - F
+    '2018':
+    - A
+    - B
+    - C
+    - D
+    2022EE:
+    - A
+    - B
+    - C
+    - D
+  jec_levels_mc:
+    2016preVFP:
+    - L1FastJet
+    - L2Relative
+    - L3Absolute
+    2016postVFP:
+    - L1FastJet
+    - L2Relative
+    - L3Absolute
+    '2017':
+    - L1FastJet
+    - L2Relative
+    - L3Absolute
+    '2018':
+    - L1FastJet
+    - L2Relative
+    - L3Absolute
+    2022EE:
+    - L1FastJet
+    - L2Relative
+    - L3Absolute
+  jec_levels_data:
+    2016preVFP:
+    - L1FastJet
+    - L2Relative
+    - L3Absolute
+    - L2L3Residual
+    2016postVFP:
+    - L1FastJet
+    - L2Relative
+    - L3Absolute
+    - L2L3Residual
+    '2017':
+    - L1FastJet
+    - L2Relative
+    - L3Absolute
+    - L2L3Residual
+    '2018':
+    - L1FastJet
+    - L2Relative
+    - L3Absolute
+    - L2L3Residual
+    2022EE:
+    - L1FastJet
+    - L2Relative
+    - L3Absolute
+    - L2L3Residual
+  jec_tags:
+    2016preVFP: Summer19UL16APV_V7_MC
+    2016postVFP: Summer19UL16_V7_MC
+    '2017': Summer19UL17_V5_MC
+    '2018': Summer19UL18_V5_MC
+    2022EE: Summer19UL18_V5_MC
+  jer_tags:
+    2016preVFP: Summer20UL16APV_JRV3_MC
+    2016postVFP: Summer20UL16_JRV3_MC
+    '2017': Summer19UL17_JRV2_MC
+    '2018': Summer19UL18_JRV2_MC
+    2022EE: Summer19UL18_JRV2_MC
+  jec_data_tags:
+    2016preVFP:
+      Summer19UL16APV_RunBCD_V7_DATA:
+      - B
+      - C
+      - D
+      Summer19UL16APV_RunEF_V7_DATA:
+      - E
+      - F
+    2016postVFP:
+      Summer19UL16_RunFGH_V7_DATA:
+      - F
+      - G
+      - H
+    '2017':
+      Summer19UL17_RunB_V5_DATA:
+      - B
+      Summer19UL17_RunC_V5_DATA:
+      - C
+      Summer19UL17_RunD_V5_DATA:
+      - D
+      Summer19UL17_RunE_V5_DATA:
+      - E
+      Summer19UL17_RunF_V5_DATA:
+      - F
+    '2018':
+      Summer19UL18_RunA_V5_DATA:
+      - A
+      Summer19UL18_RunB_V5_DATA:
+      - B
+      Summer19UL18_RunC_V5_DATA:
+      - C
+      Summer19UL18_RunD_V5_DATA:
+      - D
+    2022EE:
+      Summer19UL18_RunA_V5_DATA:
+      - A
+      Summer19UL18_RunB_V5_DATA:
+      - B
+      Summer19UL18_RunC_V5_DATA:
+      - C
+      Summer19UL18_RunD_V5_DATA:
+      - D
+  jer_variations:
+    2016preVFP:
+    - jer1_up
+    - jer1_down
+    - jer2_up
+    - jer2_down
+    - jer3_up
+    - jer3_down
+    - jer4_up
+    - jer4_down
+    - jer5_up
+    - jer5_down
+    - jer6_up
+    - jer6_down
+    2016postVFP:
+    - jer1_up
+    - jer1_down
+    - jer2_up
+    - jer2_down
+    - jer3_up
+    - jer3_down
+    - jer4_up
+    - jer4_down
+    - jer5_up
+    - jer5_down
+    - jer6_up
+    - jer6_down
+    '2017':
+    - jer1_up
+    - jer1_down
+    - jer2_up
+    - jer2_down
+    - jer3_up
+    - jer3_down
+    - jer4_up
+    - jer4_down
+    - jer5_up
+    - jer5_down
+    - jer6_up
+    - jer6_down
+    '2018':
+    - jer1_up
+    - jer1_down
+    - jer2_up
+    - jer2_down
+    - jer3_up
+    - jer3_down
+    - jer4_up
+    - jer4_down
+    - jer5_up
+    - jer5_down
+    - jer6_up
+    - jer6_down
+    2022EE:
+    - jer1_up
+    - jer1_down
+    - jer2_up
+    - jer2_down
+    - jer3_up
+    - jer3_down
+    - jer4_up
+    - jer4_down
+    - jer5_up
+    - jer5_down
+    - jer6_up
+    - jer6_down
