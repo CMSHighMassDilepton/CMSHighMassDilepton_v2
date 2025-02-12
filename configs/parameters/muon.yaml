@@ -2,9 +2,9 @@ muon_pt_cut:
   2016preVFP: 53.0
   2016postVFP: 53.0
   '2017': 53.0
-  '2018': 53.0
-  2022preEE: 53.0
-  2022postEE: 53.0
+  '2018': 35.0
+  2022preEE: 35.0
+  2022postEE: 35.0
 muon_eta_cut:
   2016preVFP: 2.4
   2016postVFP: 2.4
@@ -16,15 +16,15 @@ muon_iso_cut:
   2016preVFP: 0.05
   2016postVFP: 0.05
   '2017': 0.05
-  '2018': 0.05
-  2022preEE: 0.05
-  2022postEE: 0.05
+  '2018': 0.15
+  2022preEE: 0.15
+  2022postEE: 0.15
 muon_id:
   2016preVFP: highPtId
   2016postVFP: highPtId
   '2017': highPtId
-  '2018': highPtId
-  2022preEE: highPtId
+  '2018': mediumId
+  2022preEE: mediumId
   2022postEE: highPtId
 muon_flags:
   2016preVFP: []
@@ -61,7 +61,7 @@ muon_leading_pt:
   2016preVFP: 26.0
   2016postVFP: 26.0
   '2017': 29.0
-  '2018': 26.0
+  '2018': 35.0
   2022preEE: 26.0
   2022postEE: 26.0
 muon_trigmatch_iso:

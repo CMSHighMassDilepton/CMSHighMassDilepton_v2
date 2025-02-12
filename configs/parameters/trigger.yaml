@@ -10,9 +10,7 @@ mu_hlt:
   - TkMu100
   - OldMu100
   '2018':
-  - Mu50
-  - TkMu100
-  - OldMu100
+  - IsoMu24
   2022preEE:
   - IsoMu24
   2022postEE:
@@ -30,7 +28,7 @@ el_hlt:
   '2018':
   - DoubleEle25_CaloIdL_MW
   2022preEE:
-  - IsoMu24
+  - Ele30_WPTight_Gsf
   2022postEE:
-  - IsoMu24
+  - HLT_Ele30_WPTight_Gsf
 

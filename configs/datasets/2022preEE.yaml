@@ -1,8 +1,10 @@
 2022preEE:
-  data_C: /Muon/Run2022C-16Dec2023-v1/NANOAOD
-  data_D: /Muon/Run2022D-16Dec2023-v1/NANOAOD
-  dy_M-50To120: /DYto2Mu_MLL-50to120_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
-  dy_M-120To200: /DYto2Mu_MLL-120to200_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
+  #data_C: /Muon/Run2022C-22Sep2023-v1/NANOAOD
+  data_C: /EGamma/Run2022C-22Sep2023-v1/NANOAOD
+  #data_D: /Muon/Run2022D-22Sep2023-v1/NANOAOD
+  data_D: /EGamma/Run2022D-22Sep2023-v1/NANOAOD
+
+  dy_M-50: /DYJetsToLL_M-50_TuneCP5_13p6TeV-madgraphMLM-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   # ttjets_dl: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   # ww_2l2nu: /WWto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   # wz_3lnu: /WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM

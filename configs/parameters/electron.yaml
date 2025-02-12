@@ -2,9 +2,18 @@ electron_pt_cut:
   2016preVFP: 20.0
   2016postVFP: 20.0
   '2017': 20.0
-  '2018': 20.0
-  2022preEE: 20.0
-  2022postEE: 20.0
+  '2018': 35.0
+  2022preEE: 35.0
+  2022postEE: 35.0
+
+electron_leading_pt:
+  2016preVFP: 20.0
+  2016postVFP: 20.0
+  '2017': 20.0
+  '2018': 35.0
+  2022preEE: 35.0
+  2022postEE: 35.0  
+  
 electron_eta_cut:
   2016preVFP: 2.5
   2016postVFP: 2.5
@@ -17,7 +26,7 @@ electron_id_v9:
   2016postVFP: mvaFall17V2Iso_WP90
   '2017': mvaFall17V2Iso_WP90
   '2018': mvaFall17V2Iso_WP90
-  2022preEE: mvaFall17V2Iso_WP90
+  2022preEE: mvaIso_WP90
   2022postEE: mvaFall17V2Iso_WP90
 electron_id_v12:
   2016preVFP: mvaIso_WP90
