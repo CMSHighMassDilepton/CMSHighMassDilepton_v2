@@ -374,7 +374,7 @@ if __name__ == "__main__":
             big_sample_info.update(pre_stage_data)
         
         #save the sample info
-        directory = "/depot/cms/users/kaur214/analysis_facility/outputs/elec/prestage_output"
+        directory = "/depot/cms/users/kaur214/analysis_facility/outputs/test/prestage_output"
         #directory = "/depot/cms/users/kaur214/analysis_facility/outputs/prestage_output"
         filename = directory+"/processor_samples.json"
         dupli_fname = directory+"/fraction_processor_samples.json" # duplicated fname in case you want to skip fractioning
@@ -391,7 +391,7 @@ if __name__ == "__main__":
         
     else: # take the pre existing samples.json and prune off files we don't need
         fraction = float(args.fraction)
-        directory = "/depot/cms/users/kaur214/analysis_facility/outputs/elec/prestage_output"
+        directory = "/depot/cms/users/kaur214/analysis_facility/outputs/test/prestage_output"
         sample_path = directory + "/processor_samples.json"
         with open(sample_path) as file:
             samples = json.loads(file.read())

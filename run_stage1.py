@@ -66,7 +66,7 @@ def getSavePath(start_path: str, dataset_dict: dict, file_idx: int):
 
 def dataset_loop(processor, dataset_dict, file_idx=0, test=False, save_path=None):
     if save_path is None:
-        save_path = "/depot/cms/users/kaur214/analysis_facility/outputs/elec/" # default
+        save_path = "/depot/cms/users/kaur214/analysis_facility/outputs/test/" # default
         # save_path = "/depot/cms/hmm/yun79/copperheadV2/results/stage1/test/"
     # print(f"dataset_dict: {dataset_dict['files']}")
     events = NanoEventsFactory.from_root(
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     "-save",
     "--save_path",
     dest="save_path",
-    default="/depot/cms/users/kaur214/analysis_facility/outputs/elec/",
+    default="/depot/cms/users/kaur214/analysis_facility/outputs/test/",
     action="store",
     help="save path to store stage1 output files",
     )
@@ -188,7 +188,7 @@ if __name__ == "__main__":
         #---------------------------------------------------------
         # print("cluster scale up")
         # sample_path = "./prestage_output/processor_samples.json"
-        sample_path = "/depot/cms/users/kaur214/analysis_facility/outputs/elec/prestage_output/processor_samples.json"
+        sample_path = "/depot/cms/users/kaur214/analysis_facility/outputs/test/prestage_output/processor_samples.json"
         #sample_path = "/depot/cms/users/kaur214/analysis_facility/outputs/prestage_output/processor_samples.json"
         #sample_path = "/depot/cms/users/kaur214/analysis_facility/outputs/prestage_output/fraction_processor_samples.json"
         with open(sample_path) as file:
@@ -205,7 +205,7 @@ if __name__ == "__main__":
             for dataset, sample in tqdm.tqdm(samples.items()):
             # for dataset, sample in samples.items():
                 sample_step = time.time()
-                max_file_len = 10 ##number of files per job
+                max_file_len = 100 ##number of files per job
                 smaller_files = list(divide_chunks(sample["files"], max_file_len))
                 # print(f"smaller_files: {smaller_files}")
                 print(f"max_file_len: {max_file_len}")
@@ -230,6 +230,8 @@ if __name__ == "__main__":
                     if not os.path.exists(save_path):
                         os.makedirs(save_path)
                     to_persist.persist().to_parquet(save_path)
+                    del to_persist
+                    client.restart(wait_for_workers = False)
                     
                     var_elapsed = round(time.time() - var_step, 3)
                     print(f"Finished file_idx {idx} in {var_elapsed} s.")
@@ -239,7 +241,7 @@ if __name__ == "__main__":
     else:
         # dataset_loop(coffea_processor, xrootd_path+fname, test=test_mode)
 
-        sample_path = "/depot/cms/users/kaur214/analysis_facility/outputs/elec/prestage_output/fraction_processor_samples.json"
+        sample_path = "/depot/cms/users/kaur214/analysis_facility/outputs/test/prestage_output/fraction_processor_samples.json"
         with open(sample_path) as file:
             samples = json.loads(file.read())
         # print(f"samples.keys(): {samples.keys()}")
