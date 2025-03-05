@@ -35,7 +35,7 @@ if __name__ == "__main__":
     "-y",
     "--year",
     dest="year",
-    default="2018",
+    default="2022preEE",
     action="store",
     help="year value. The options are: 2016preVFP, 2016postVFP, 2017, 2018",
     )
@@ -43,7 +43,7 @@ if __name__ == "__main__":
     "-ch",
     "--chunksize",
     dest="chunksize",
-    default="10000",
+    default="300000",
     action="store",
     help="chunksize",
     )
@@ -184,8 +184,7 @@ if __name__ == "__main__":
                     new_sample_list.append("dy_M-50")
                 
                 elif bkg_sample.upper() == "TT": # enforce upper case to prevent confusion
-                    new_sample_list.append("ttjets_dl")
-                    new_sample_list.append("ttjets_sl")
+                    new_sample_list.append("tt_inclusive")
                 elif bkg_sample.upper() == "ST": # enforce upper case to prevent confusion
                     new_sample_list.append("st_tw_top")
                     new_sample_list.append("st_tw_antitop")

@@ -7,6 +7,7 @@ import numpy as np
 import dask
 # from dask.distributed import Client
 import sys
+sys.path.append("/depot/cms/users/kaur214/analysis_facility/CMSHighMassDilepton_v2/CMSHighMassDilepton_v2")
 import time
 import json
 from distributed import LocalCluster, Client, progress
@@ -24,6 +25,7 @@ import os
 from omegaconf import OmegaConf
 from coffea.nanoevents.methods import vector
 
+from dask.delayed import delayed
 
 # dask.config.set({'logging.distributed': 'error'})
 import logging
@@ -65,9 +67,11 @@ def getSavePath(start_path: str, dataset_dict: dict, file_idx: int):
     return save_path
 
 def dataset_loop(processor, dataset_dict, file_idx=0, test=False, save_path=None):
+
     if save_path is None:
-        save_path = "/depot/cms/users/kaur214/analysis_facility/outputs/test/" # default
-        # save_path = "/depot/cms/hmm/yun79/copperheadV2/results/stage1/test/"
+        #save_path = "/depot/cms/users/kaur214/analysis_facility/outputs/test/elec/" # default
+        #save_path = "/depot/cms/users/kaur214/analysis_facility/outputs/test/muon/" # default
+        save_path = "/depot/cms/users/kaur214/analysis_facility/outputs/test/muon/rocc_cor/" # default
     # print(f"dataset_dict: {dataset_dict['files']}")
     events = NanoEventsFactory.from_root(
         dataset_dict["files"],
@@ -88,10 +92,9 @@ def dataset_loop(processor, dataset_dict, file_idx=0, test=False, save_path=None
     skim_dict["fraction"] = dataset_fraction*(ak.ones_like(out_collections["event"]))
 
     skim_zip = ak.zip(skim_dict, depth_limit=1)
-    # print(f"skim_zip: {skim_zip}")
-    # skim_zip.persist().to_parquet(save_path)
-    # raise ValueError
-    return skim_zip
+
+    df = ak.to_dataframe(skim_zip)
+    df.to_parquet(save_path)
 
 def divide_chunks(data: dict, SIZE: int):
    it = iter(data)
@@ -105,7 +108,8 @@ if __name__ == "__main__":
     "-save",
     "--save_path",
     dest="save_path",
-    default="/depot/cms/users/kaur214/analysis_facility/outputs/test/",
+    default="/depot/cms/users/kaur214/analysis_facility/outputs/test/muon/rocc_cor/",
+    #default="/depot/cms/users/kaur214/analysis_facility/outputs/test/elec/",
     action="store",
     help="save path to store stage1 output files",
     )
@@ -189,8 +193,6 @@ if __name__ == "__main__":
         # print("cluster scale up")
         # sample_path = "./prestage_output/processor_samples.json"
         sample_path = "/depot/cms/users/kaur214/analysis_facility/outputs/test/prestage_output/processor_samples.json"
-        #sample_path = "/depot/cms/users/kaur214/analysis_facility/outputs/prestage_output/processor_samples.json"
-        #sample_path = "/depot/cms/users/kaur214/analysis_facility/outputs/prestage_output/fraction_processor_samples.json"
         with open(sample_path) as file:
             samples = json.loads(file.read())
         # add in NanoAODv info into samples metadata for coffea processor
@@ -199,19 +201,19 @@ if __name__ == "__main__":
         start_save_path = args.save_path + f"/stage1_output/{args.year}"
         print(f"start_save_path: {start_save_path}")
         # with performance_report(filename="dask-report.html"):
-        # for dataset, sample in samples.items():
-        # dask.config.set(scheduler='single-threaded')
         with performance_report(filename="dask-report.html"):
             for dataset, sample in tqdm.tqdm(samples.items()):
             # for dataset, sample in samples.items():
                 sample_step = time.time()
-                max_file_len = 100 ##number of files per job
+                max_file_len = 130 ##number of files per job
+                #max_file_len = 130 ##number of files per job
                 smaller_files = list(divide_chunks(sample["files"], max_file_len))
-                # print(f"smaller_files: {smaller_files}")
                 print(f"max_file_len: {max_file_len}")
                 print(f"len(smaller_files): {len(smaller_files)}")
                 # for idx in range(len(smaller_files)):
                 # for idx in tqdm.tqdm(range(2, len(smaller_files)), leave=False):
+                tasks = []  # Store all tasks for parallel execution
+
                 for idx in tqdm.tqdm(range(len(smaller_files)), leave=False):
                     # print("restarting workers!")
                     # client.restart(wait_for_workers = False)
@@ -219,22 +221,12 @@ if __name__ == "__main__":
                     smaller_sample["files"] = smaller_files[idx]
                     var_step = time.time()
                     # print(f"var_step: {var_step}")
-                    to_persist = dataset_loop(coffea_processor, smaller_sample, file_idx=idx, test=test_mode, save_path=start_save_path)
                     save_path = getSavePath(start_save_path, smaller_sample, idx)
-                    print(f"save_path: {save_path}")
-                    # remove previously existing files and make path if doesn't exist
-                    filelist = glob.glob(f"{save_path}/*.parquet")
-                    print(f"len(filelist): {len(filelist)}")
-                    for file in filelist:
-                        os.remove(file)
+                    
                     if not os.path.exists(save_path):
                         os.makedirs(save_path)
-                    to_persist.persist().to_parquet(save_path)
-                    del to_persist
-                    client.restart(wait_for_workers = False)
+                    dataset_loop(coffea_processor, smaller_sample, file_idx=idx, test=test_mode, save_path=save_path)
                     
-                    var_elapsed = round(time.time() - var_step, 3)
-                    print(f"Finished file_idx {idx} in {var_elapsed} s.")
                 sample_elapsed = round(time.time() - sample_step, 3)
                 print(f"Finished sample {dataset} in {sample_elapsed} s.")
                 

@@ -6,6 +6,15 @@ electron_pt_cut:
   2022preEE: 35.0
   2022postEE: 35.0
 
+electron_veto_pt_cut:
+  2016preVFP: 10.0
+  2016postVFP: 10.0
+  '2017': 10.0
+  '2018': 10.0
+  2022preEE: 10.0
+  2022postEE: 10.0
+
+
 electron_leading_pt:
   2016preVFP: 20.0
   2016postVFP: 20.0

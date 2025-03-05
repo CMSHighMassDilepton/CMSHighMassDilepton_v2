@@ -92,9 +92,9 @@ def CMS_lumi( pad,  lumi,  up = False,  status = "", reduceSize = False, offset 
     latex2.SetTextSize(0.5*pad.GetTopMargin());
   
   if(lumi != ""):
-    latex2.DrawLatex(0.94+offsetLumi, 0.95,(lumi+" fb^{-1} (13 TeV)"));
+    latex2.DrawLatex(0.94+offsetLumi, 0.95,(lumi+" fb^{-1} (13.6 TeV)"));
   else:
-    latex2.DrawLatex(0.88+offsetLumi, 0.95,(lumi+"(13 TeV)"));
+    latex2.DrawLatex(0.88+offsetLumi, 0.95,(lumi+"(13.6 TeV)"));
 
   if(up):
     latex2.SetTextSize(0.65*pad.GetTopMargin());

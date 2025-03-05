@@ -39,11 +39,11 @@ parser = argparse.ArgumentParser()
 #    ]
 
 
-paths = "/depot/cms/users/kaur214/analysis_facility/outputs/stage1_output/2022preEE/f1_0/dy_M-50/*/*parquet"
+paths = "/depot/cms/private/users/kaur214/analysis_facility/outputs/test/stage1_output/2022preEE/f1_0/dy_M-50/*/*parquet"
 #paths = "/depot/cms/users/kaur214/analysis_facility/outputs/stage1_output/2018/f1_0/dy_M-50/*/*parquet"
 
 #paths_data = "/depot/cms/users/kaur214/analysis_facility/outputs/stage1_output/2018/f1_0/data_A/*/*parquet"
-paths_data = "/depot/cms/users/kaur214/analysis_facility/outputs/stage1_output/2022preEE/f1_0/data_*/*/*parquet"
+paths_data = "/depot/cms/users/kaur214/analysis_facility/outputs/test/stage1_output/2022preEE/f1_0/data_*/*/*parquet"
 
 sig_files = glob.glob(paths)
 df_temp = dd.read_parquet(sig_files)

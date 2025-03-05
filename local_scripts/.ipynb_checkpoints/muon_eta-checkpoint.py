@@ -39,9 +39,9 @@ load_fields = [
     ]
 
 
-paths = "/depot/cms/users/kaur214/analysis_facility/outputs/stage1_output/2018/f1_0/dy_M-50/*/*parquet"
+paths = "/depot/cms/private/users/kaur214/analysis_facility/outputs/test/stage1_output/2022preEE/f1_0/dy_M-50/*/*parquet"
 
-paths_data = "/depot/cms/users/kaur214/analysis_facility/outputs/stage1_output/2018/f1_0/data_A/*/*parquet"
+paths_data = "/depot/cms/private/users/kaur214/analysis_facility/outputs/test/stage1_output/2022preEE/f1_0/data_*/*/*parquet"
 
 sig_files = glob.glob(paths)
 df_temp = dd.read_parquet(sig_files)
@@ -57,14 +57,13 @@ df_data = df_data_temp[load_fields]
 
 print("computation complete")
 
-df_dy   = df_dy[(df_dy["dimuon_mass"] > 60.) & (df_dy["dimuon_mass"] <120.)]
-df_data   = df_data[(df_data["dimuon_mass"] > 60.) & (df_data["dimuon_mass"] <120.)]
+#df_dy   = df_dy[(df_dy["dimuon_mass"] > 60.) & (df_dy["dimuon_mass"] <120.)]
+#df_data   = df_data[(df_data["dimuon_mass"] > 60.) & (df_data["dimuon_mass"] <120.)]
 
 
 massBinningMuMu = (
-    [j for j in range(-2.5, 2.5, 0.25)]
-    + [2.5]
-)
+    np.arange(-3.0, 3.5, 0.5)
+) 
 
 
 print("starting .. ")
@@ -87,7 +86,7 @@ for i in range(len(data_mass)):
     h_data.Fill(data_mass[i], wgt_data[i])
 
 
-file2 = TFile("new_dy_2018A_eta.root","RECREATE")
+file2 = TFile("new_dy_2022_eta.root","RECREATE")
 file2.cd()
 h_dy.Write()
 h_data.Write()

@@ -81,42 +81,66 @@ muSFFileList:
     - data/muon_sf/mu2018/EfficienciesStudies_2018_trigger_EfficienciesAndSF_2018Data_BeforeMuonHLTUpdate.root
     - IsoMu24_PtEtaBins/efficienciesDATA/abseta_pt_DATA
     - IsoMu24_PtEtaBins/efficienciesMC/abseta_pt_MC
-    scale: 0.14981586876464678
-  - id:
-    - data/muon_sf/year2018/MuonSF_Run2018_UL_ID.root
-    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
-    iso:
-    - data/muon_sf/year2018/MuonSF_Run2018_UL_ISO.root
-    - NUM_TightRelIso_DEN_MediumID_abseta_pt
-    trig:
-    - data/muon_sf/mu2018/EfficienciesStudies_2018_trigger_EfficienciesAndSF_2018Data_AfterMuonHLTUpdate.root
-    - IsoMu24_PtEtaBins/efficienciesDATA/abseta_pt_DATA
-    - IsoMu24_PtEtaBins/efficienciesMC/abseta_pt_MC
-    scale: 0.8501841312353532
+    scale: 1.0 
   2022preEE:
   - id:
-    - data/muon_sf/year2017/MuonSF_Run2017_UL_ID.root
-    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    - data/muon_sf/year2022preEE/mediumID_muon_Z.json
+      #- data/muon_sf/year2022preEE/muon_HighPt.json
+    - NUM_MediumID_DEN_TrackerMuons
+      #- NUM_TrkHighPtID_DEN_GlobalMuonProbes
     iso:
-    - data/muon_sf/year2017/MuonSF_Run2017_UL_ISO.root
-    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    - data/muon_sf/year2022preEE/mediumID_muon_Z.json
+      #- data/muon_sf/year2022preEE/muon_HighPt.json
+    - NUM_TightPFIso_DEN_MediumID
+      #- NUM_probe_TightRelTkIso_DEN_HighPtProbes
     trig:
-    - data/muon_sf/mu2017/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root
-    - IsoMu27_PtEtaBins/efficienciesDATA/abseta_pt_DATA
-    - IsoMu27_PtEtaBins/efficienciesMC/abseta_pt_MC
+    - data/muon_sf/year2022preEE/ScaleFactors_Muon_Z_HLT_2022_eta_pt_schemaV2.json
+      #- data/muon_sf/year2022preEE/muon_HighPt.json
+    - NUM_IsoMu24_DEN_CutBasedIdMedium_and_PFIsoMedium
+      #- NUM_HLT_DEN_TrkHighPtTightRelIsoProbes
     scale: 1.0
   2022postEE:
   - id:
-    - data/muon_sf/year2017/MuonSF_Run2017_UL_ID.root
+    - data/muon_sf/year2022postEE/MuonSF_Run2017_UL_ID.root
     - NUM_MediumID_DEN_TrackerMuons_abseta_pt
     iso:
-    - data/muon_sf/year2017/MuonSF_Run2017_UL_ISO.root
+    - data/muon_sf/year2022postEE/MuonSF_Run2017_UL_ISO.root
     - NUM_TightRelIso_DEN_MediumID_abseta_pt
     trig:
-    - data/muon_sf/mu2017/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root
+    - data/muon_sf/year2022postEE/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root
     - IsoMu27_PtEtaBins/efficienciesDATA/abseta_pt_DATA
     - IsoMu27_PtEtaBins/efficienciesMC/abseta_pt_MC
     scale: 1.0
+    
+  2023preBPix:
+  - id:
+    - data/muon_sf/year2022postEE/MuonSF_Run2017_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2022postEE/MuonSF_Run2017_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/year2022postEE/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root
+    - IsoMu27_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu27_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 1.0
+
+  2023postBPix:
+  - id:
+    - data/muon_sf/year2022postEE/MuonSF_Run2017_UL_ID.root
+    - NUM_MediumID_DEN_TrackerMuons_abseta_pt
+    iso:
+    - data/muon_sf/year2022postEE/MuonSF_Run2017_UL_ISO.root
+    - NUM_TightRelIso_DEN_MediumID_abseta_pt
+    trig:
+    - data/muon_sf/year2022postEE/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root
+    - IsoMu27_PtEtaBins/efficienciesDATA/abseta_pt_DATA
+    - IsoMu27_PtEtaBins/efficienciesMC/abseta_pt_MC
+    scale: 1.0
+
+
+
+    
 zpt_weights_file:
   2016preVFP: data/reweight_zpt_2018_nJetBinned_new.histo.root
   2016postVFP: data/reweight_zpt_2018_nJetBinned_new.histo.root

@@ -39,11 +39,11 @@ parser = argparse.ArgumentParser()
 #    ]
 
 
-paths = "/depot/cms/users/kaur214/analysis_facility/outputs/elec/stage1_output/2022preEE/f1_0/dy_M-50/*/*parquet"
+paths = "/depot/cms/private/users/kaur214/analysis_facility/outputs/test/elec/stage1_output/2022preEE/f1_0/dy_M-50/*/*parquet"
 
 
 #paths_data = "/depot/cms/users/kaur214/analysis_facility/outputs/stage1_output/2018/f1_0/data_A/*/*parquet"
-paths_data = "/depot/cms/users/kaur214/analysis_facility/outputs/elec/stage1_output/2022preEE/f1_0/data_*/*/*parquet"
+paths_data = "/depot/cms/private/users/kaur214/analysis_facility/outputs/test/elec/stage1_output/2022preEE/f1_0/data_*/*/*parquet"
 
 sig_files = glob.glob(paths)
 df_temp = dd.read_parquet(sig_files)
@@ -81,7 +81,7 @@ print("starting .. ")
 dy_mass = df_dy["dielectron_mass"].compute().values
 data_mass =  df_data["dielectron_mass"].compute().values 
 
-#wgt_dy = df_dy["wgt_nominal_total"].compute().values
+wgt_dy = df_dy["wgt_nominal_total"].compute().values
 wgt_data = df_data["wgt_nominal_total"].compute().values
 
 print("done complete")
@@ -90,8 +90,7 @@ h_dy = TH1F("h_dy", "h_dy", len(massBinningMuMu)-1, array('d', massBinningMuMu))
 h_data = TH1F("h_data", "h_data", len(massBinningMuMu)-1, array('d', massBinningMuMu))
 
 for i in range(len(dy_mass)):
-    #h_dy.Fill(dy_mass[i], wgt_dy[i])
-    h_dy.Fill(dy_mass[i], 5115.15)
+    h_dy.Fill(dy_mass[i], wgt_dy[i])
 
 for i in range(len(data_mass)):
     h_data.Fill(data_mass[i], wgt_data[i])

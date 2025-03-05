@@ -7,7 +7,7 @@ import awkward as ak
 import dask_awkward as dak
 from omegaconf import OmegaConf
 import correctionlib
-
+import pandas as pd
 # PU SF --------------------------------------------------------------------
 # def pu_lookups(parameters, mode="nom", auto=[]):
 #     lookups = {}
@@ -157,7 +157,7 @@ def pu_evaluator(parameters, ntrueint, onTheSpot=False, Run=2):
             # print(f"pu_weights[{var}]: {pu_weights[var].compute()}")
     elif Run==3:
         jsonGz_path = parameters["pu_file_mc"]
-        print(f"jsonGz_path: {jsonGz_path}")
+        #print(f"jsonGz_path: {jsonGz_path}")
         ceval = correctionlib.CorrectionSet.from_file(jsonGz_path)
         key = list(ceval.keys())[0]
         pu_lookup = ceval[key]
@@ -335,233 +335,120 @@ def nnlops_weights(Higgs_pt, njets30, parameters, dataset):
 
 # Mu SF-------------------------------------------------------------------------
 
-def get_musf_lookup(parameters):
-    mu_id_vals = 0
-    mu_id_err = 0
-    mu_iso_vals = 0
-    mu_iso_err = 0
-    mu_trig_vals_data = 0
-    mu_trig_err_data = 0
-    mu_trig_vals_mc = 0
-    mu_trig_err_mc = 0
-
-    for scaleFactors in parameters["muSFFileList"]:
-        id_file = uproot.open(scaleFactors["id"][0])
-        iso_file = uproot.open(scaleFactors["iso"][0])
-        # print(f'lepton sf scaleFactors["trig"][0: {scaleFactors["trig"][0]}')
-        trig_file = uproot.open(scaleFactors["trig"][0])
-        mu_id_vals += id_file[scaleFactors["id"][1]].values() * scaleFactors["scale"]
-        mu_id_err += (
-            id_file[scaleFactors["id"][1]].variances() ** 0.5 * scaleFactors["scale"]
-        )
-        mu_id_edges = [
-            id_file[scaleFactors["id"][1]].axis(0).edges(),
-            id_file[scaleFactors["id"][1]].axis(1).edges(),
-        ]
-        mu_iso_vals += iso_file[scaleFactors["iso"][1]].values() * scaleFactors["scale"]
-        mu_iso_err += (
-            iso_file[scaleFactors["iso"][1]].variances() ** 0.5 * scaleFactors["scale"]
-        )
-        mu_iso_edges = [
-            iso_file[scaleFactors["iso"][1]].axis(0).edges(),
-            iso_file[scaleFactors["iso"][1]].axis(1).edges(),
-        ]
-        mu_trig_vals_data += (
-            trig_file[scaleFactors["trig"][1]].values() * scaleFactors["scale"]
-        )
-        mu_trig_vals_mc += (
-            trig_file[scaleFactors["trig"][2]].values() * scaleFactors["scale"]
-        )
-        mu_trig_err_data += (
-            trig_file[scaleFactors["trig"][1]].variances() ** 0.5
-            * scaleFactors["scale"]
-        )
-        mu_trig_err_mc += (
-            trig_file[scaleFactors["trig"][2]].variances() ** 0.5
-            * scaleFactors["scale"]
-        )
-        mu_trig_edges = [
-            trig_file[scaleFactors["trig"][1]].axis(0).edges(),
-            trig_file[scaleFactors["trig"][1]].axis(1).edges(),
-        ]
-
-    mu_id_sf = dense_lookup.dense_lookup(mu_id_vals, mu_id_edges)
-    mu_id_err = dense_lookup.dense_lookup(mu_id_err, mu_id_edges)
-    mu_iso_sf = dense_lookup.dense_lookup(mu_iso_vals, mu_iso_edges)
-    mu_iso_err = dense_lookup.dense_lookup(mu_iso_err, mu_iso_edges)
-
-    mu_trig_eff_data = dense_lookup.dense_lookup(mu_trig_vals_data, mu_trig_edges)
-    # print(f'lepton sf mu_trig_vals_mc: {mu_trig_vals_mc}')
-    # print(f'lepton sf mu_trig_edges: {mu_trig_edges}')
-    mu_trig_eff_mc = dense_lookup.dense_lookup(mu_trig_vals_mc, mu_trig_edges)
-    mu_trig_err_data = dense_lookup.dense_lookup(mu_trig_err_data, mu_trig_edges)
-    mu_trig_err_mc = dense_lookup.dense_lookup(mu_trig_err_mc, mu_trig_edges)
-
-    return {
-        "mu_id_sf": mu_id_sf,
-        "mu_id_err": mu_id_err,
-        "mu_iso_sf": mu_iso_sf,
-        "mu_iso_err": mu_iso_err,
-        "mu_trig_eff_data": mu_trig_eff_data,
-        "mu_trig_eff_mc": mu_trig_eff_mc,
-        "mu_trig_err_data": mu_trig_err_data,
-        "mu_trig_err_mc": mu_trig_err_mc,
-    }
+def musf_evaluator(parameters, year, mu1, mu2):
 
 
+    scaleFactors = parameters["muSFFileList"]
+    id_file = scaleFactors[0]['id']
 
-# def musf_evaluator(lookups, year, muons):
-#     sf = {
-#         # "muID_nom": ak.ones_like(muons.pt[:,0]),
-#         # "muID_up": ak.ones_like(muons.pt[:,0]),
-#         # "muID_down": ak.ones_like(muons.pt[:,0]),
-#         # "muIso_nom": ak.ones_like(muons.pt[:,0]),
-#         # "muIso_up": ak.ones_like(muons.pt[:,0]),
-#         # "muIso_down": ak.ones_like(muons.pt[:,0]),
-#         # "muTrig_nom": ak.ones_like(muons.pt[:,0]),
-#         # "muTrig_up": ak.ones_like(muons.pt[:,0]),
-#         # "muTrig_down": ak.ones_like(muons.pt[:,0]),
-#     }
+    muon_correctionset = correctionlib.CorrectionSet.from_file(
+        id_file[0]
+    )
 
-#     for how in ["nom", "up", "down"]:
-#         sf[f"trig_num_{how}"] = 1.0
-#         sf[f"trig_denom_{how}"] = 1.0
-
-#     pt = muons.pt_raw
-#     eta = muons.eta_raw
-#     abs_eta = abs(muons.eta_raw)
-#     # pt = muons.pt
-#     # eta = muons.eta
-#     # abs_eta = abs(muons.eta)
-
-#     if "2016" in year:
-#         muID_ = lookups["mu_id_sf"](eta, pt)
-#         muIso_ = lookups["mu_iso_sf"](eta, pt)
-#         muIDerr = lookups["mu_id_err"](eta, pt)
-#         muIsoerr = lookups["mu_iso_err"](eta, pt)
-#     else:
-#         muID_ = lookups["mu_id_sf"](pt, abs_eta)
-#         muIso_ = lookups["mu_iso_sf"](pt, abs_eta)
-#         muIDerr = lookups["mu_id_err"](pt, abs_eta)
-#         muIsoerr = lookups["mu_iso_err"](pt, abs_eta)
-
-#     muTrig_data = lookups["mu_trig_eff_data"](abs_eta, pt)
-#     muTrig_mc = lookups["mu_trig_eff_mc"](abs_eta, pt)
-#     muTrigerr_data = lookups["mu_trig_err_data"](abs_eta, pt)
-#     muTrigerr_mc = lookups["mu_trig_err_mc"](abs_eta, pt)
-
-#     sf["trig_num_nom"] = ak.prod(1.0 - muTrig_data, axis=1)
-#     sf["trig_num_up"] = ak.prod(1.0 - (muTrig_data - muTrigerr_data), axis=1)
-#     sf["trig_num_down"] = ak.prod(1.0 - (muTrig_data + muTrigerr_data), axis=1)
-#     sf["trig_denom_nom"] = ak.prod(1.0 - muTrig_mc, axis=1)
-#     sf["trig_denom_up"] = ak.prod(1.0 - (muTrig_mc - muTrigerr_mc), axis=1)
-#     sf["trig_denom_down"] = ak.prod(1.0 - (muTrig_mc + muTrigerr_mc), axis=1)
-
-#     # print(f'copperheadV2 lepton sf  sf["trig_num_nom"]: \n {ak.to_numpy(sf["trig_num_nom"])}')
-#     # print(f'copperheadV2 lepton sf  sf["trig_num_up"]: \n {ak.to_numpy(sf["trig_num_up"])}')
-#     # print(f'copperheadV2 lepton sf  sf["trig_num_down"]: \n {ak.to_numpy(sf["trig_num_down"])}')
-#     # print(f'copperheadV2 lepton sf  sf["trig_denom_nom"]: \n {ak.to_numpy(sf["trig_denom_nom"])}')
-#     # print(f'copperheadV2 lepton sf  sf["trig_denom_up"]: \n {ak.to_numpy(sf["trig_denom_up"])}')
-#     # print(f'copperheadV2 lepton sf  sf["trig_denom_down"]: \n {ak.to_numpy(sf["trig_denom_down"])}')
-
-    
-#     sf["muID_nom"] =  ak.prod(muID_, axis=1)
-#     sf["muID_up"] = ak.prod(muID_ + muIDerr, axis=1)
-#     sf["muID_down"] = ak.prod(muID_ - muIDerr, axis=1)
-#     sf["muIso_nom"] = ak.prod(muIso_, axis=1)
-#     sf["muIso_up"] = ak.prod(muIso_ + muIsoerr, axis=1)
-#     sf["muIso_down"] = ak.prod(muIso_ - muIsoerr, axis=1)
-    
-#     # print(f'copperheadV2 lepton sf  sf["muID_nom"]: \n {ak.to_numpy(sf["muID_nom"])}')
-#     # print(f'copperheadV2 lepton sf  sf["muID_up"]: \n {ak.to_numpy(sf["muID_up"])}')
-#     # print(f'copperheadV2 lepton sf  sf["muID_down"]: \n {ak.to_numpy(sf["muID_down"])}')
-#     # print(f'copperheadV2 lepton sf  sf["muIso_nom"]: \n {ak.to_numpy(sf["muIso_nom"])}')
-#     # print(f'copperheadV2 lepton sf  sf["muIso_up"]: \n {ak.to_numpy(sf["muIso_up"])}')
-#     # print(f'copperheadV2 lepton sf  sf["muIso_down"]: \n {ak.to_numpy(sf["muIso_down"])}')
-
-#     #for trig SF
-#     for how in ["nom", "up", "down"]:
-#         sf[f"trig_num_{how}"] = 1 - sf[f"trig_num_{how}"]
-#         sf[f"trig_denom_{how}"] = 1 - sf[f"trig_denom_{how}"]
-#         cut = sf[f"trig_denom_{how}"] != 0
-#         # sf.loc[cut, f"muTrig_{how}"] = (
-#         #     sf.loc[cut, f"trig_num_{how}"] / sf.loc[cut, f"trig_denom_{how}"]
-#         # )
-#         cut_val = sf[f"trig_num_{how}"] / sf[f"trig_denom_{how}"]
-#         # print(f'copperheadV2 lepton sf {how} cut_val: \n {ak.to_numpy(cut_val)}')
-#         # print(f'copperheadV2 lepton sf ak.ones_like(muons.pt[:,0]): \n {ak.to_numpy(ak.ones_like(muons.pt[:,0]))}')
-#         sf[f"muTrig_{how}"] = ak.where(cut, cut_val, ak.ones_like(muons.pt[:,0]))
-#     muID = {"nom": sf["muID_nom"], "up": sf["muID_up"], "down": sf["muID_down"]}
-#     muIso = {"nom": sf["muIso_nom"], "up": sf["muIso_up"], "down": sf["muIso_down"]}
-#     muTrig = {"nom": sf["muTrig_nom"], "up": sf["muTrig_up"], "down": sf["muTrig_down"]}
-#     # print(f'copperheadV2 lepton sf  sf["muTrig_nom"]: \n {(sf["muTrig_nom"])}')
-#     return muID, muIso, muTrig
-
-def musf_evaluator(lookups, year, mu1, mu2):
     sf = {
         "muID_nom": ak.ones_like(mu1.pt),
         "muID_up": ak.ones_like(mu1.pt),
         "muID_down": ak.ones_like(mu1.pt),
-        "muIso_nom": ak.ones_like(mu1.pt),
-        "muIso_up": ak.ones_like(mu1.pt),
-        "muIso_down": ak.ones_like(mu1.pt),
-        "muTrig_nom": ak.ones_like(mu1.pt),
-        "muTrig_up": ak.ones_like(mu1.pt),
-        "muTrig_down": ak.ones_like(mu1.pt),
-    }
-
-    for how in ["nom", "up", "down"]:
-        sf[f"trig_num_{how}"] = 1.0
-        sf[f"trig_denom_{how}"] = 1.0
+    }    
 
     for mu in [mu1, mu2]:
-        pt = mu.pt_raw
+        pt = mu.pt
         eta = mu.eta_raw
         abs_eta = abs(mu.eta_raw)
 
-        if "2016" in year:
-            muID_ = lookups["mu_id_sf"](eta, pt)
-            muIso_ = lookups["mu_iso_sf"](eta, pt)
-            muIDerr = lookups["mu_id_err"](eta, pt)
-            muIsoerr = lookups["mu_iso_err"](eta, pt)
-        else:
-            muID_ = lookups["mu_id_sf"](pt, abs_eta)
-            muIso_ = lookups["mu_iso_sf"](pt, abs_eta)
-            muIDerr = lookups["mu_id_err"](pt, abs_eta)
-            muIsoerr = lookups["mu_iso_err"](pt, abs_eta)
-    
-        muTrig_data = lookups["mu_trig_eff_data"](abs_eta, pt)
-        muTrig_mc = lookups["mu_trig_eff_mc"](abs_eta, pt)
-        muTrigerr_data = lookups["mu_trig_err_data"](abs_eta, pt)
-        muTrigerr_mc = lookups["mu_trig_err_mc"](abs_eta, pt)
-    
-        sf["trig_num_nom"] = sf["trig_num_nom"] * ( 1.0 - muTrig_data)
-        sf["trig_num_up"] = sf["trig_num_up"] * (1.0 - (muTrig_data - muTrigerr_data))
-        sf["trig_num_down"] = sf["trig_num_down"] * (1.0 - (muTrig_data + muTrigerr_data))
-        sf["trig_denom_nom"] = sf["trig_denom_nom"] * (1.0 - muTrig_mc)
-        sf["trig_denom_up"] = sf["trig_denom_up"] * (1.0 - (muTrig_mc - muTrigerr_mc))
-        sf["trig_denom_down"] = sf["trig_denom_down"] *(1.0 - (muTrig_mc + muTrigerr_mc))
-        
-        sf["muID_nom"] =  sf["muID_nom"] * (muID_)
-        sf["muID_up"] = sf["muID_up"] * (muID_ + muIDerr)
-        sf["muID_down"] = sf["muID_down"] * (muID_ - muIDerr)
-        sf["muIso_nom"] = sf["muIso_nom"] * (muIso_)
-        sf["muIso_up"] = sf["muIso_up"] * (muIso_ + muIsoerr)
-        sf["muIso_down"] = sf["muIso_down"] * (muIso_ - muIsoerr)
-    
-   
 
-    #for trig SF
-    for how in ["nom", "up", "down"]:
-        sf[f"trig_num_{how}"] = 1 - sf[f"trig_num_{how}"]
-        sf[f"trig_denom_{how}"] = 1 - sf[f"trig_denom_{how}"]
-        cut = sf[f"trig_denom_{how}"] != 0
-        cut_val = sf[f"trig_num_{how}"] / sf[f"trig_denom_{how}"]
-        sf[f"muTrig_{how}"] = ak.where(cut, cut_val, ak.ones_like(mu1.pt))
+    muID_ = muon_correctionset[id_file[1]].evaluate(
+         np.abs(eta), np.abs(pt), "nominal"
+    )
+
+    muIDUp_ = muon_correctionset[id_file[1]].evaluate(
+         np.abs(eta), np.abs(pt), "systup"
+    )
+    muIDDown_ = muon_correctionset[id_file[1]].evaluate(
+         np.abs(eta), np.abs(pt), "systdown"
+    )
+    sf["muID_nom"]  = sf["muID_nom"] * (muID_)
+    sf["muID_up"]   = sf["muID_up"]  * (muIDUp_)
+    sf["muID_down"] = sf["muID_down"] * (muIDDown_)
+
     muID = {"nom": sf["muID_nom"], "up": sf["muID_up"], "down": sf["muID_down"]}
-    muIso = {"nom": sf["muIso_nom"], "up": sf["muIso_up"], "down": sf["muIso_down"]}
-    muTrig = {"nom": sf["muTrig_nom"], "up": sf["muTrig_up"], "down": sf["muTrig_down"]}
-    return muID, muIso, muTrig
+
+    return muID
+
+def musf_iso_evaluator(parameters, year, mu1, mu2):
+
+
+    scaleFactors = parameters["muSFFileList"]
+    id_file = scaleFactors[0]['iso']
+
+    muon_correctionset = correctionlib.CorrectionSet.from_file(
+        id_file[0]
+    )
+
+    sf = {
+        "muIso_nom": ak.ones_like(mu1.pt),
+        "muIso_up": ak.ones_like(mu1.pt),
+        "muIso_down": ak.ones_like(mu1.pt),
+    }
+
+    for mu in [mu1, mu2]:
+        pt = mu.pt
+        eta = mu.eta_raw
+        abs_eta = abs(mu.eta_raw)
+
+    muID_ = muon_correctionset[id_file[1]].evaluate(
+         np.abs(eta), np.abs(pt), "nominal"
+    )
+    muIDUp_ = muon_correctionset[id_file[1]].evaluate(
+         np.abs(eta), np.abs(pt), "systup"
+    )
+    muIDDown_ = muon_correctionset[id_file[1]].evaluate(
+         np.abs(eta), np.abs(pt), "systdown"
+    )
+    sf["muIso_nom"]  = sf["muIso_nom"]  *  (muID_)
+    sf["muIso_up"]   = sf["muIso_up"]   *  (muIDUp_)
+    sf["muIso_down"] = sf["muIso_down"] *  (muIDDown_)
+
+    muID = {"nom": sf["muIso_nom"], "up": sf["muIso_up"], "down": sf["muIso_down"]}
+
+    return muID
+
+def musf_hlt_evaluator(parameters, year, mu1, mu2):
+
+
+    scaleFactors = parameters["muSFFileList"]
+    id_file = scaleFactors[0]['trig']
+
+    muon_correctionset = correctionlib.CorrectionSet.from_file(
+        id_file[0]
+    )
+
+    sf = {
+        "muHLT_nom": ak.ones_like(mu1.pt),
+        "muHLT_up": ak.ones_like(mu1.pt),
+        "muHLT_down": ak.ones_like(mu1.pt),
+    }
+    for mu in [mu1, mu2]:
+        pt = mu.pt
+        eta = mu.eta_raw
+        abs_eta = abs(mu.eta_raw)
+
+    muID_ = muon_correctionset[id_file[1]].evaluate(
+         np.abs(eta), np.abs(pt), "nominal"
+    )
+    muIDUp_ = muon_correctionset[id_file[1]].evaluate(
+         np.abs(eta), np.abs(pt), "systup"
+    )
+    muIDDown_ = muon_correctionset[id_file[1]].evaluate(
+         np.abs(eta), np.abs(pt), "systdown"
+    )
+    sf["muHLT_nom"]  = sf["muHLT_nom"]  * (muID_)
+    sf["muHLT_up"]   = sf["muHLT_up"]   * (muIDUp_)
+    sf["muHLT_down"] = sf["muHLT_down"] * (muIDDown_)
+
+    muID = {"nom": sf["muHLT_nom"], "up": sf["muHLT_up"], "down": sf["muHLT_down"]}
+
+    return muID
 
 
 # LHE SF-------------------------------------------------------------------------

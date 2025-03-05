@@ -72,7 +72,7 @@ variables = [
     # # # 'mu2_iso',
     # # 'mu1_pt_over_mass',
     # # 'mu2_pt_over_mass',
-    # "dimuon_mass",
+     "dimuon_mass",
     # # "dimuon_ebe_mass_res",
     # # "dimuon_ebe_mass_res_rel",
     # "dimuon_pt",
@@ -82,17 +82,17 @@ variables = [
     # # "dimuon_dEta",
     # # "dimuon_dPhi",
     # # "dimuon_dR",
-    "dimuon_cos_theta_cs",
-    "dimuon_phi_cs",
-    # "jet1_pt",
-    # "jet1_eta",
+    #"dimuon_cos_theta_cs",
+    #"dimuon_phi_cs",
+     "jet1_pt",
+     "jet1_eta",
     # # # "jet1_rap",
     # # # "jet1_phi",
     # # # "jet1_qgl",
     # # # "jet1_jetId",
     # # # "jet1_puId",
-    # "jet2_pt",
-    # "jet2_eta",
+     "jet2_pt",
+     "jet2_eta",
     # # # "jet2_rap",
     # # # "jet2_phi",
     # # "jet2_qgl",
@@ -127,8 +127,8 @@ regions = [
     # "h_peak",
     "signal_region",
 ]
-default_load_path = "/depot/cms/users/yun79/results/stage1/test"
-default_save_path = "./validation/figs"
+default_load_path = "/depot/cms/private/users/kaur214/analysis_facility/outputs/test/stage1_output/"
+default_save_path = "/depot/cms/private/users/kaur214/analysis_facility/outputs/validation/figs"
 
 # channels = ["vbf", "ggh", "DY", "TT+ST", "Data"]
 channels =  ["Data", "MC", "Bkg", "Sig"]
@@ -143,20 +143,20 @@ channels =  ["Data", "MC", "Bkg", "Sig"]
 
 parameters = {}
 parameters["grouping"] = {
-    "data_A": "Data",
-    "data_B": "Data",
+#    "data_A": "Data",
+#    "data_B": "Data",
     "data_C": "Data",
     "data_D": "Data",
-    "data_E": "Data",
-    "data_F": "Data",
-    "data_G": "Data",
-    "data_H": "Data",
+#    "data_E": "Data",
+#    "data_F": "Data",
+#    "data_G": "Data",
+#    "data_H": "Data",
     "dy_M-50": "DY",
-    "dy_M-100To200": "DY", # this gives really weird plot with this on in Z peak region
-    "ttjets_dl": "TT+ST",
-    "ttjets_sl": "TT+ST",
-    "ggh_powheg": "ggH",
-    "vbf_powheg": "VBF",
+#    "dy_M-100To200": "DY", # this gives really weird plot with this on in Z peak region
+#    "ttjets_dl": "TT+ST",
+#    "ttjets_sl": "TT+ST",
+#    "ggh_powheg": "ggH",
+#    "vbf_powheg": "VBF",
 }
 parameters["plot_group"] = {
     "stack": ["DY", "EWK", "TT+ST", "VV", "VVV"],
@@ -271,15 +271,15 @@ def get_plottable(
                 region_filter = ak.fill_none(df["h_peak"], value = False)
             else: # signal region"
                 print("signal region activated")
-                region_filter = (ak.fill_none(df["h_sidebands"], value = False) | ak.fill_none(df["h_peak"], value = False) )
+                #region_filter = (ak.fill_none(df["h_sidebands"], value = False) | ak.fill_none(df["h_peak"], value = False) )
 
-            vbf_cut = ak.fill_none(df["vbf_cut"], value  = False)
-            region_filter = region_filter & ~vbf_cut
+            #vbf_cut = ak.fill_none(df["vbf_cut"], value  = False)
+            #region_filter = region_filter & ~vbf_cut
             # refine df
             # print(f"vbf_cut : {vbf_cut.compute()}")
             # print(f"(region_filter).compute() : {(region_filter).compute()}")
             # print(f"ak.sum(region_filter).compute() : {ak.sum(region_filter).compute()}")
-            df = df[region_filter]
+            #df = df[region_filter]
             # print(f"variable: {variable}")
             
             # print(f'df["fraction"][0]: {df["fraction"][0]}')
@@ -390,7 +390,7 @@ if __name__ == "__main__":
     plotsize = 8
     ratio_plot_size = 0.25
     fontsize=20
-    year = "2018"
+    year = "2022preEE"
     plot_ratio = re.findall(r"Ratio_.", args.input_string)
     plot_ratio = [str.replace("Ratio_", "") for str in plot_ratio]
     plot_ratio = plot_ratio[0] # get rid of list
